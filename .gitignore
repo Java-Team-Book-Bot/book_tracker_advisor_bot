@@ -1,0 +1,40 @@
+# Артефакты сборки
+**/build/
+**/target/
+**/out/
+**/bin/
+
+# Скомпилированные файлы
+*.class
+*.module
+
+# Логи
+*.log
+
+# Временные файлы IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.settings/
+.project
+.classpath
+.factorypath
+.vscode/
+
+# Секреты 
+.env
+.env.local
+*.secret
+
+# Система
+.DS_Store
+Thumbs.db
+
+*.jar
+
+*.zip
+*.tar.gz
+*.rar
+
+docker/data/
