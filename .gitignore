@@ -21,6 +21,7 @@
 .classpath
 .factorypath
 .vscode/
+.claude
 
 # Секреты 
 .env
@@ -38,3 +39,4 @@ Thumbs.db
 *.rar
 
 docker/data/
+docs/src
