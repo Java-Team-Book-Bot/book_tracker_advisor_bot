@@ -21,7 +21,11 @@
 .classpath
 .factorypath
 .vscode/
+.windsurf/
 .claude
+
+# Кэш Gradle
+.gradle/
 
 # Секреты 
 .env
@@ -33,6 +37,7 @@
 Thumbs.db
 
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 *.zip
 *.tar.gz

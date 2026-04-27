@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: booktracker-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./docker/data/mongo:/data/db
+
+  app:
+    build: .
+    container_name: booktracker-app
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      BOT_USERNAME: ${BOT_USERNAME}
+      GIGACHAT_AUTH_KEY: ${GIGACHAT_AUTH_KEY}
+      GIGACHAT_SCOPE: ${GIGACHAT_SCOPE}
+      GOOGLE_BOOKS_API_KEY: ${GOOGLE_BOOKS_API_KEY}
+      MONGO_URI: ${MONGO_URI:-mongodb://mongo:27017/booktracker}
+      ADMIN_API_KEY: ${ADMIN_API_KEY}
+      ZMQ_REMINDER_ENDPOINT: ${ZMQ_REMINDER_ENDPOINT:-tcp://127.0.0.1:5555}
+      REMINDER_TZ: ${REMINDER_TZ:-Europe/Moscow}
+      HTTP_PORT: ${HTTP_PORT:-8080}
+    ports:
+      - "8080:8080"
