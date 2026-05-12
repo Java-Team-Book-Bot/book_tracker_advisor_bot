@@ -4,11 +4,11 @@ Telegram-бот для учёта прочитанных книг, ведени�
 
 ## Docker-образ на Docker Hub
 
-`https://hub.docker.com/r/kinda7119/book_tracker_advisor_bot-app`
+<https://hub.docker.com/r/kinda7119/book_tracker_advisor_bot-app>
 
 ## Ссылка на Telegram-бота
 
-`https://t.me/book_tracker_advisor_bot`.
+<https://t.me/book_tracker_advisor_bot>.
 
 ## Архитектура и требования
 
