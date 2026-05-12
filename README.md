@@ -2,6 +2,19 @@
 
 Telegram-бот для учёта прочитанных книг, ведения списков чтения и получения интеллектуальных рекомендаций. Интегрируется с Google Books API для метаданных и с GigaChat API для персонализированных советов. Реализован на **Java 25 + Spring Framework 7** (без Spring Boot), с MongoDB для хранения данных и ZeroMQ для асинхронной отправки напоминаний.
 
+## Docker-образ на Docker Hub
+
+`https://hub.docker.com/r/kinda7119/book_tracker_advisor_bot-app`
+
+## Ссылка на Telegram-бота
+
+`https://t.me/book_tracker_advisor_bot`.
+
+## Архитектура и требования
+
+- Требования: [`docs/Requirements.md`](docs/Requirements.md).
+- Архитектура: [`docs/Архитектура.pdf`](docs/Архитектура.pdf).
+
 ## Возможности
 
 - Поиск книг через Google Books (`/search`, `/random`).
@@ -105,19 +118,6 @@ curl -i http://localhost:8080/users
 # С ключом → 200 + JSON со списком пользователей
 curl -H "X-API-Key: $ADMIN_API_KEY" http://localhost:8080/users
 ```
-
-## Docker-образ на Docker Hub
-
-Опубликованный образ: **TODO: ссылка на Docker Hub после публикации**.
-
-## Ссылка на Telegram-бота
-
-`https://t.me/book_tracker_advisor_bot`.
-
-## Архитектура и требования
-
-- Требования: [`docs/Requirements.md`](docs/Requirements.md).
-- Архитектура: [`docs/Архитектура.pdf`](docs/Архитектура.pdf).
 
 
 ## Авторы
