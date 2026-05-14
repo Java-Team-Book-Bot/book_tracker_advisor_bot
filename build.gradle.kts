@@ -3,6 +3,7 @@ plugins {
     checkstyle
     id("com.diffplug.spotless") version "7.2.1"
     id("com.gradleup.shadow") version "8.3.5"
+    id("org.asciidoctor.jvm.convert") version "4.0.2"
 }
 
 group = "ru.spbstu.booktracker"
@@ -26,12 +27,14 @@ val jakartaServletVersion = "6.0.0"
 val slf4jVersion = "2.0.16"
 val logbackVersion = "1.5.12"
 val jeromqVersion = "0.6.0"
-val junitVersion = "5.11.3"
+val junitVersion = "5.13.4"
 val mockitoVersion = "5.20.0"
 val assertjVersion = "3.26.3"
-val testcontainersVersion = "1.20.4"
-val springRestDocsVersion = "3.0.3"
+val testcontainersVersion = "1.21.4"
+val springRestDocsVersion = "4.0.0"
 val mongoDriverVersion = "5.6.1"
+
+val snippetsDir by extra { file("build/generated-snippets") }
 
 dependencies {
     // Spring Framework 7 (NO Spring Boot)
@@ -87,6 +90,14 @@ tasks.test {
     testLogging {
         events("passed", "skipped", "failed")
     }
+        outputs.dir(snippetsDir)
+}
+
+tasks.asciidoctor {
+    inputs.dir(snippetsDir)
+    dependsOn(tasks.test)
+    sourceDir(file("src/docs/asciidoc"))
+    attributes(mapOf("snippets" to snippetsDir))
 }
 
 checkstyle {
@@ -134,5 +145,5 @@ tasks.named<Jar>("jar") {
 }
 
 tasks.named("build") {
-    dependsOn("shadowJar")
+    dependsOn("shadowJar", "asciidoctor")
 }

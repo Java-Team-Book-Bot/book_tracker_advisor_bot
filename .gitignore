@@ -45,3 +45,5 @@ Thumbs.db
 
 docker/data/
 docs/src
+
+.metals/

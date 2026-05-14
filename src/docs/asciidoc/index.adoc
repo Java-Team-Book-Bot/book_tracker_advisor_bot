@@ -1,0 +1,37 @@
+= Book Tracker and Advisor Bot API Documentation
+:toc: left
+:toclevels: 2
+:sectnums:
+
+== Introduction
+This document describes the administrative HTTP API for the Book Tracker and Advisor Bot.
+
+== Health Check
+Returns the current status of the application and the list of project authors.
+
+=== Request
+include::{snippets}/healthcheck/curl-request.adoc[]
+
+=== Response
+include::{snippets}/healthcheck/http-response.adoc[]
+
+=== Response Fields
+include::{snippets}/healthcheck/response-fields.adoc[]
+
+== User Management
+Allows administrators to view the list of registered users and their basic statistics.
+
+=== Authorization
+This endpoint requires an administrative API key to be passed in the `X-API-Key` header.
+
+=== Request
+include::{snippets}/users/curl-request.adoc[]
+
+=== Request Headers
+include::{snippets}/users/request-headers.adoc[]
+
+=== Response
+include::{snippets}/users/http-response.adoc[]
+
+=== Response Fields
+include::{snippets}/users/response-fields.adoc[]

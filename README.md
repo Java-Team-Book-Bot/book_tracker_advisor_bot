@@ -92,6 +92,7 @@ java -jar build/libs/book-tracker-advisor-bot.jar
 ./gradlew check        # unit-тесты + Checkstyle + Spotless
 ./gradlew test         # только тесты
 ./gradlew spotlessApply # автоформатирование google-java-format
+./gradlew asciidoctor # rest docs 
 ```
 
 Интеграционный тест `UserRepositoryIT` поднимает Testcontainers MongoDB — для него нужен Docker.
@@ -118,7 +119,6 @@ curl -i http://localhost:8080/users
 # С ключом → 200 + JSON со списком пользователей
 curl -H "X-API-Key: $ADMIN_API_KEY" http://localhost:8080/users
 ```
-
 
 ## Авторы
 

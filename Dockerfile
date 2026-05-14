@@ -8,7 +8,8 @@ COPY src ./src
 RUN chmod +x ./gradlew && ./gradlew --no-daemon shadowJar -x checkstyleMain -x spotlessCheck
 
 # --- Runtime stage ---
-FROM eclipse-temurin:25-jre
+# alpine более легкая версия linux
+FROM eclipse-temurin:25-jre-alpine 
 WORKDIR /app
 
 # вшиваем сертификат от минцифры для работы гигачат
